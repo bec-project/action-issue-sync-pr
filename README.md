@@ -53,6 +53,15 @@ jobs:
           pr-number: ${{ github.event.pull_request.number }}
 ```
 
+### Versioning
+
+This action supports both major version tags and specific version tags:
+
+- **Major version tag (recommended)**: `@v1` - Automatically gets the latest v1.x.x release
+- **Specific version tag**: `@v1.0.0` - Pins to an exact version
+
+Using the major version tag is recommended for most use cases as it automatically receives bug fixes and new features while maintaining backward compatibility within the same major version.
+
 ### Requirements
 
 This action requires:
