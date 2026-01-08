@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v1.0.2 (2026-01-08)
+
+### Bug Fixes
+
+- Add versioning section to README
+  ([`267182f`](https://github.com/bec-project/action-issue-sync-pr/commit/267182f7ae472b76c46172c6247ff358ea11c1f8))
+
+- Update paths in README and action.yml to be relative to action directory
+  ([`8f4fa48`](https://github.com/bec-project/action-issue-sync-pr/commit/8f4fa484021613975c7d790966621490fef95707))
+
+
 ## v1.0.1 (2026-01-08)
 
 ### Bug Fixes
