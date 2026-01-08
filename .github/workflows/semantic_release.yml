@@ -74,3 +74,20 @@ jobs:
                   pip install python-semantic-release==9.*
                   semantic-release -vv version
                   semantic-release publish
+
+            - name: Update Major Version Tag
+              if: steps.release.outcome == 'success'
+              run: |
+                  # Get the latest tag created by semantic-release
+                  LATEST_TAG=$(git describe --tags --abbrev=0)
+                  echo "Latest tag: $LATEST_TAG"
+
+                  # Extract major version (e.g., v1.2.3 -> v1)
+                  MAJOR_TAG=$(echo $LATEST_TAG | cut -d. -f1)
+                  echo "Major version tag: $MAJOR_TAG"
+
+                  # Create/update the major version tag
+                  git tag -f $MAJOR_TAG $LATEST_TAG
+                  git push -f origin $MAJOR_TAG
+
+                  echo "Updated $MAJOR_TAG to point to $LATEST_TAG"
