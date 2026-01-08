@@ -1,0 +1,61 @@
+name: "Sync PR to Project"
+description: "Synchronize pull requests to GitHub Projects"
+author: "bec-project"
+
+branding:
+  icon: "git-pull-request"
+  color: "blue"
+
+inputs:
+  token:
+    description: "GitHub token with permissions to manage projects"
+    required: true
+  project-number:
+    description: "Project number to sync to"
+    required: false
+    default: "3"
+  org:
+    description: "Organization name"
+    required: true
+  repo:
+    description: "Repository name"
+    required: true
+  pr-number:
+    description: "Pull request number"
+    required: true
+  python-version:
+    description: "Python version to use"
+    required: false
+    default: "3.11"
+  script-path:
+    description: "Path to the pr_issue_sync.py script"
+    required: false
+    default: "./scripts/pr_issue_sync/pr_issue_sync.py"
+  requirements-path:
+    description: "Path to requirements.txt"
+    required: false
+    default: "./scripts/pr_issue_sync/requirements.txt"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up python environment
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        pip install -r ${{ inputs.requirements-path }}
+
+    - name: Sync PR to Project
+      shell: bash
+      env:
+        PROJECT_NUMBER: ${{ inputs.project-number }}
+        ORG: ${{ inputs.org }}
+        REPO: ${{ inputs.repo }}
+        TOKEN: ${{ inputs.token }}
+        PR_NUMBER: ${{ inputs.pr-number }}
+      run: |
+        python ${{ inputs.script-path }}
