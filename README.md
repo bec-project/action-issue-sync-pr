@@ -9,10 +9,10 @@ A GitHub Action that synchronizes pull requests to GitHub Projects.
 | Input | Description | Required | Default |
 |-------|-------------|----------|---------|
 | `token` | GitHub token with permissions to manage projects | Yes | - |
-| `project-number` | Project number to sync to | No | `3` |
 | `org` | Organization name | Yes | - |
 | `repo` | Repository name | Yes | - |
 | `pr-number` | Pull request number | Yes | - |
+| `project-number` | Project number to sync to | No | `3` |
 | `python-version` | Python version to use | No | `3.11` |
 | `script-path` | Path to the pr_issue_sync.py script | No | `./.github/scripts/pr_issue_sync/pr_issue_sync.py` |
 | `requirements-path` | Path to requirements.txt | No | `./.github/scripts/pr_issue_sync/requirements.txt` |
