@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.1 (2026-01-08)
+
+### Bug Fixes
+
+- Always release a major version
+  ([`1fad585`](https://github.com/bec-project/action-issue-sync-pr/commit/1fad585c736ca3ae22bbf910d51c4046dc919784))
+
+
 ## v1.0.0 (2026-01-08)
 
 ### Features
