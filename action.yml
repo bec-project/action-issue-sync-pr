@@ -28,13 +28,13 @@ inputs:
     required: false
     default: "3.11"
   script-path:
-    description: "Path to the pr_issue_sync.py script"
+    description: "Path to the pr_issue_sync.py script (relative to action directory)"
     required: false
-    default: "./scripts/pr_issue_sync/pr_issue_sync.py"
+    default: "scripts/pr_issue_sync/pr_issue_sync.py"
   requirements-path:
-    description: "Path to requirements.txt"
+    description: "Path to requirements.txt (relative to action directory)"
     required: false
-    default: "./scripts/pr_issue_sync/requirements.txt"
+    default: "scripts/pr_issue_sync/requirements.txt"
 
 runs:
   using: "composite"
@@ -47,7 +47,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        pip install -r ${{ inputs.requirements-path }}
+        pip install -r ${{ github.action_path }}/${{ inputs.requirements-path }}
 
     - name: Sync PR to Project
       shell: bash
@@ -58,4 +58,4 @@ runs:
         TOKEN: ${{ inputs.token }}
         PR_NUMBER: ${{ inputs.pr-number }}
       run: |
-        python ${{ inputs.script-path }}
+        python ${{ github.action_path }}/${{ inputs.script-path }}

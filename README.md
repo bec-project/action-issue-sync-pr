@@ -14,8 +14,8 @@ A GitHub Action that synchronizes pull requests to GitHub Projects.
 | `pr-number` | Pull request number | Yes | - |
 | `project-number` | Project number to sync to | No | `3` |
 | `python-version` | Python version to use | No | `3.11` |
-| `script-path` | Path to the pr_issue_sync.py script | No | `./.github/scripts/pr_issue_sync/pr_issue_sync.py` |
-| `requirements-path` | Path to requirements.txt | No | `./.github/scripts/pr_issue_sync/requirements.txt` |
+| `script-path` | Path to the pr_issue_sync.py script (relative to action) | No | `scripts/pr_issue_sync/pr_issue_sync.py` |
+| `requirements-path` | Path to requirements.txt (relative to action) | No | `scripts/pr_issue_sync/requirements.txt` |
 
 ### Example Workflow
 
@@ -64,10 +64,10 @@ Using the major version tag is recommended for most use cases as it automaticall
 
 ### Requirements
 
-This action requires:
-- A Python script at the path specified in `script-path` (default: `./.github/scripts/pr_issue_sync/pr_issue_sync.py`)
-- A requirements file at the path specified in `requirements-path` (default: `./.github/scripts/pr_issue_sync/requirements.txt`)
-- A GitHub token with appropriate permissions stored in repository secrets
+This action:
+- Bundles the Python scripts needed for syncing PRs to GitHub Projects
+- Requires a GitHub token with appropriate permissions stored in repository secrets
+- Requires the repository to be checked out (see example workflow above)
 
 ## License
 
