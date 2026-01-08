@@ -38,12 +38,6 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository }}
-          ref: ${{ github.event.pull_request.head.ref }}
-
       - name: Sync PR to Project
         uses: bec-project/action-issue-sync-pr@v1
         with:
