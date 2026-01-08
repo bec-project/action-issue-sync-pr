@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.3 (2026-01-08)
+
+### Bug Fixes
+
+- Remove unnecessary checkout step from workflow example
+  ([`06dd5ce`](https://github.com/bec-project/action-issue-sync-pr/commit/06dd5ce66376e5e378bbdbec1cef65db0b072846))
+
+
 ## v1.0.2 (2026-01-08)
 
 ### Bug Fixes
